@@ -1,9 +1,9 @@
 <?php
 return [
-    'Name'        => '规则名称',
+    'Name'        => '規則名稱',
     'Controller'  => '控制器',
-    'Data Table'  => '对应数据表',
-    'Primary Key' => '数据表主键',
-    'Data Fields' => '敏感数据字段',
-    'Remark lang' => '在此定义需要保护的敏感字段，随后系统将自动监听该字段的修改操作，并提供了敏感字段的修改回滚功能',
+    'Data Table'  => '對應數據表',
+    'Primary Key' => '數據表主鍵',
+    'Data Fields' => '敏感數據字段',
+    'Remark lang' => '在此定義需要保護的敏感字段，隨後系統將自動監聽該字段的修改操作，並提供了敏感字段的修改回滾功能',
 ];

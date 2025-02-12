@@ -1,5 +1,5 @@
 export default {
-    GroupName: '组名',
-    'Group name': '组别名称',
-    jurisdiction: '权限',
+    GroupName: '組名',
+    'Group name': '組別名稱',
+    jurisdiction: '權限',
 }

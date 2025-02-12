@@ -1,13 +1,13 @@
 /**
- * 前台公共语言包
- * 覆盖风险：请避免使用页面语言包的目录名、文件名作为翻译 key
+ * 前台公共語言包
+ * 覆蓋風險：請避免使用頁面語言包的目錄名、文件名作為翻譯 key
  */
 export default {
-    Integral: '积分',
-    Balance: '余额',
-    Language: '语言',
-    Copyright: '版权所有',
-    'Member Center': '会员中心',
-    'Logout login': '注销登录',
-    'Member center disabled': '会员中心已禁用，请联系网站管理员开启。',
+    Integral: '積分',
+    Balance: '餘額',
+    Language: '語言',
+    Copyright: '版權所有',
+    'Member Center': '會員中心',
+    'Logout login': '註銷登錄',
+    'Member center disabled': '會員中心已禁用，請聯繫網站管理員開啟。',
 }

@@ -1,4 +1,4 @@
 <?php
 return [
-    'No rows were restore' => '没有记录被还原',
+    'No rows were restore' => '沒有記錄被還原',
 ];

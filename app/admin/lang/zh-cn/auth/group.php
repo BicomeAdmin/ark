@@ -1,10 +1,10 @@
 <?php
 return [
-    'Super administrator'                                                                                                 => '超级管理员',
-    'No permission'                                                                                                       => '无权限',
-    'You cannot modify your own management group!'                                                                        => '不能修改自己所在的管理组！',
-    'You need to have all permissions of this group to operate this group~'                                               => '您需要拥有该分组的所有权限才可以操作该分组~',
-    'You need to have all the permissions of the group and have additional permissions before you can operate the group~' => '您需要拥有该分组的所有权限且还有额外权限时，才可以操作该分组~',
-    'Role group has all your rights, please contact the upper administrator to add or do not need to add!'                => '角色组拥有您的全部权限，请联系上级管理员添加或无需添加！',
-    'Remark lang'                                                                                                         => '为保障系统安全，角色组本身的上下级关系仅供参考，系统的实际上下级划分是根据`权限多寡`来确定的，两位管理员的权限节点：相同被认为是`同级`、包含且有额外权限才被认为是`上级`，同级不可管理同级，上级可为下级分配自己拥有的权限节点；若有特殊情况管理员需转`上级`，可建立一个虚拟权限节点',
+    'Super administrator'                                                                                                 => '超級管理員',
+    'No permission'                                                                                                       => '無權限',
+    'You cannot modify your own management group!'                                                                        => '不能修改自己所在的管理組！',
+    'You need to have all permissions of this group to operate this group~'                                               => '您需要擁有該分組的所有權限才可以操作該分組~',
+    'You need to have all the permissions of the group and have additional permissions before you can operate the group~' => '您需要擁有該分組的所有權限且還有額外權限時，才可以操作該分組~',
+    'Role group has all your rights, please contact the upper administrator to add or do not need to add!'                => '角色組擁有您的全部權限，請聯繫上級管理員添加或無需添加！',
+    'Remark lang'                                                                                                         => '為保障系統安全，角色組本身的上下級關係僅供參考，系統的實際上下級劃分是根據`權限多寡`來確定的，兩位管理員的權限節點：相同被認為是`同級`、包含且有額外權限才被認為是`上級`，同級不可管理同級，上級可為下級分配自己擁有的權限節點；若有特殊情況管理員需轉`上級`，可建立一個虛擬權限節點',
 ];

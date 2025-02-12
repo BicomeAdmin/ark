@@ -38,7 +38,7 @@ export const useConfig = defineStore(
             defaultLang: 'zh-cn',
             fallbackLang: 'zh-cn',
             langArray: [
-                { name: 'zh-cn', value: '中文简体' },
+                { name: 'zh-cn', value: '中文繁體' },
                 { name: 'en', value: 'English' },
             ],
         })

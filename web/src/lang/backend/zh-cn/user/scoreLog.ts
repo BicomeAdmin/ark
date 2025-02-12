@@ -1,8 +1,8 @@
 export default {
-    integral: '积分',
-    'Change points': '变更积分',
-    'Current points': '当前积分',
-    'Please enter the change amount of points': '请输入积分变更数额',
-    'Points after change': '变更后积分',
-    'Please enter change remarks / description': '请输入变更备注/说明',
+    integral: '積分',
+    'Change points': '變更積分',
+    'Current points': '當前積分',
+    'Please enter the change amount of points': '請輸入積分變更數額',
+    'Points after change': '變更後積分',
+    'Please enter change remarks / description': '請輸入變更備註/說明',
 }

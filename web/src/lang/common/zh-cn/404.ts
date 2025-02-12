@@ -1,6 +1,6 @@
 export default {
-    'problems tip': '你的网页遇到了一些问题，系统正在优化和上报故障信息，我们在未来将改善和减少这种情况的发生.',
-    'We will automatically return to the previous page when we are finished': '我们将在完成后自动返回到上一页。',
-    'Return to home page': '返回首页',
-    'Back to previous page': '返回上一页',
+    'problems tip': '你的網頁遇到了一些問題，系統正在優化和上報故障信息，我們在未來將改善和減少這種情況的發生.',
+    'We will automatically return to the previous page when we are finished': '我們將在完成後自動返回到上一頁。',
+    'Return to home page': '返回首頁',
+    'Back to previous page': '返回上一頁',
 }

@@ -6,7 +6,7 @@ use think\migration\Migrator;
 class Version202 extends Migrator
 {
     /**
-     * 规范菜单规则
+     * 規範菜單規則
      * @throws Throwable
      */
     public function up(): void
@@ -25,7 +25,7 @@ class Version202 extends Migrator
                         'name' => 'dashboard',
                     ]);
 
-                // 增加一个查看的权限节点
+                // 增加一個查看的權限節點
                 $dashboardIndexId = Db::name('admin_rule')->insertGetId([
                     'pid'         => $dashboardId,
                     'type'        => 'button',
@@ -35,7 +35,7 @@ class Version202 extends Migrator
                     'create_time' => time(),
                 ]);
 
-                // 原本有控制台权限的管理员，给予新增的查看权限
+                // 原本有控制台權限的管理員，給予新增的查看權限
                 $group = Db::name('admin_group')
                     ->where('rules', 'find in set', $dashboardId)
                     ->select();

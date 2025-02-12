@@ -1,4 +1,4 @@
 <?php
 return [
-    'No rows were rollback' => '没有记录被回滚',
+    'No rows were rollback' => '沒有記錄被回滾',
 ];

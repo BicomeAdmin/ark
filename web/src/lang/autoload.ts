@@ -1,9 +1,9 @@
 import { adminBaseRoutePath } from '/@/router/static/adminBase'
 
 /*
- * 语言包按需加载映射表
- * 使用固定字符串 ${lang} 指代当前语言
- * key 为页面 path，value 为语言包文件相对路径，访问时，按需自动加载映射表的语言包，同时加载 path 对应的语言包（若存在）
+ * 語言包按需加載映射表
+ * 使用固定字符串 ${lang} 指代當前語言
+ * key 為頁面 path，value 為語言包文件相對路徑，訪問時，按需自動加載映射表的語言包，同時加載 path 對應的語言包（若存在）
  */
 export default {
     '/': ['./frontend/${lang}/index.ts'],

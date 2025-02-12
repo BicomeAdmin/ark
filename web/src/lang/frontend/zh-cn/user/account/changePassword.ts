@@ -1,8 +1,8 @@
 export default {
-    'Change Password': '修改密码',
-    'Old password': '旧密码',
-    'New password': '新密码',
-    'Confirm new password': '确认新密码',
-    'Please enter your current password': '请输入现在的密码',
-    'The duplicate password does not match the new password': '重复密码与新密码不相符',
+    'Change Password': '修改密碼',
+    'Old password': '舊密碼',
+    'New password': '新密碼',
+    'Confirm new password': '確認新密碼',
+    'Please enter your current password': '請輸入現在的密碼',
+    'The duplicate password does not match the new password': '重複密碼與新密碼不相符',
 }
