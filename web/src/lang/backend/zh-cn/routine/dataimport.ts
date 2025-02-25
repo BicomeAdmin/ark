@@ -1,0 +1,15 @@
+export default {
+    id: 'ID',
+    data_table: '數據表',
+    admin_id: '管理員',
+    admin__username: '用戶名',
+    file: '文件',
+    records: '記錄數',
+    import_success_records: '導入成功記錄數',
+    radio: '狀態',
+    'radio upload': '已上傳',
+    'radio import': '已導入',
+    'radio cancel': '已取消',
+    create_time: '創建時間',
+    'quick Search Fields': 'ID、數據表名、記錄數',
+}
