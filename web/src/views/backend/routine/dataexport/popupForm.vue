@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- 对话框表单 -->
+        <!-- 對話框表單 -->
         <el-dialog
             class="ba-operate-dialog"
             :close-on-click-modal="false"
@@ -23,7 +23,7 @@
                     :rules="rules"
                 >
                     <el-tabs class="config-tabs" @tab-change="onTabChange" v-model="state.tab">
-                        <el-tab-pane label="基础配置" name="base">
+                        <el-tab-pane label="基礎配置" name="base">
                             <FormItem
                                 :label="t('routine.dataexport.name')"
                                 type="string"
@@ -45,12 +45,12 @@
                             />
                             <FormItem
                                 v-if="baTable.form.extend!.fieldSelectOpt"
-                                label="导出字段"
+                                label="導出字段"
                                 type="selects"
                                 v-model="baTable.form.items!.fields"
                                 :key="baTable.form.extend!.fieldSelectKey"
                                 prop="fields"
-                                placeholder="请先选择导出数据源表，随后在此选择导出字段"
+                                placeholder="請先選擇導出數據源表，隨後在此選擇導出字段"
                                 :data="{ content: baTable.form.extend!.fieldSelectOpt }"
                                 v-loading="baTable.form.extend!.fieldLoading"
                             />
@@ -63,29 +63,29 @@
                                 <el-col :span="4">
                                     <el-input
                                         type="text"
-                                        placeholder="字段标题"
+                                        placeholder="字段標題"
                                         v-model="baTable.form.extend!.fieldSelect[item].title"
                                         class="field-title-input"
                                     />
                                 </el-col>
-                                <el-col :span="3" class="field-title-input-title">数据识别:</el-col>
+                                <el-col :span="3" class="field-title-input-title">數據識別:</el-col>
                                 <el-col :span="4">
                                     <el-select v-model="baTable.form.extend!.fieldSelect[item].discern">
                                         <el-option label="文本" value="text" />
-                                        <el-option label="数字" value="int" />
-                                        <el-option label="时间日期" value="time" />
-                                        <el-option label="值替换" value="valuation" />
+                                        <el-option label="數字" value="int" />
+                                        <el-option label="時間日期" value="time" />
+                                        <el-option label="值替換" value="valuation" />
                                         <el-option label="省份城市" value="city" />
                                     </el-select>
                                 </el-col>
                                 <el-col :span="3" class="field-title-input-title">
-                                    <div v-if="baTable.form.extend!.fieldSelect[item].discern == 'valuation'">替换方案:</div>
+                                    <div v-if="baTable.form.extend!.fieldSelect[item].discern == 'valuation'">替換方案:</div>
                                 </el-col>
                                 <el-col :span="6">
                                     <div v-if="baTable.form.extend!.fieldSelect[item].discern == 'valuation'">
                                         <el-input
                                             type="text"
-                                            placeholder="值替换方案"
+                                            placeholder="值替換方案"
                                             v-model="baTable.form.extend!.fieldSelect[item].comment"
                                             class="field-title-input"
                                         />
@@ -93,14 +93,14 @@
                                 </el-col>
                             </el-row>
                         </el-tab-pane>
-                        <el-tab-pane label="关联表配置" name="join">
-                            <FormItem label="关联表数量" type="number" v-model.number="baTable.form.items!.joinTableNumber" />
+                        <el-tab-pane label="關聯表配置" name="join">
+                            <FormItem label="關聯表數量" type="number" v-model.number="baTable.form.items!.joinTableNumber" />
                             <div v-for="item in baTable.form.items!.joinTableNumber" :key="item" class="join-table-item">
                                 <div class="form-hr"></div>
-                                <el-form-item :label="'关联表' + item">
+                                <el-form-item :label="'關聯表' + item">
                                     <el-select
                                         class="w100"
-                                        :placeholder="t('Please select field', { field: '关联表' + item })"
+                                        :placeholder="t('Please select field', { field: '關聯表' + item })"
                                         v-model="baTable.form.items!.joinTable[item - 1]"
                                         @change="onJoinTableChange($event, item - 1)"
                                         v-loading="baTable.form.extend!.fieldLoading"
@@ -110,51 +110,51 @@
                                 </el-form-item>
                                 <FormItem
                                     type="string"
-                                    placeholder="非必填，设置别名后则源表可与关联表相同"
-                                    label="关联表别名"
+                                    placeholder="非必填，設置別名後則源表可與關聯表相同"
+                                    label="關聯表別名"
                                     v-model="baTable.form.items!.joinTableAsName[item - 1]"
                                 />
                                 <FormItem
                                     v-if="baTable.form.extend!.fieldSelectOpt"
-                                    label="关联外键"
+                                    label="關聯外鍵"
                                     type="select"
                                     v-model="baTable.form.items!.joinTableFk[item - 1]"
                                     :key="baTable.form.extend!.fieldSelectKey + 'fk'"
-                                    :placeholder="'请先选择源表，随后在此关联外键'"
+                                    :placeholder="'請先選擇源表，隨後在此關聯外鍵'"
                                     :data="{ content: baTable.form.extend!.fieldSelectOpt }"
                                     v-loading="baTable.form.extend!.fieldLoading"
                                 />
                                 <FormItem
                                     v-if="baTable.form.extend!.joinTableFieldSelectOpt && baTable.form.extend!.joinTableFieldSelectOpt[item - 1]"
-                                    label="关联主键"
+                                    label="關聯主鍵"
                                     type="select"
                                     v-model="baTable.form.items!.joinTablePk[item - 1]"
                                     :key="baTable.form.extend!.joinTableFieldSelectKey[item - 1] + 'pk'"
-                                    :placeholder="'请先选择关联表' + item + '，随后在此选择关联主键'"
+                                    :placeholder="'請先選擇關聯表' + item + '，隨後在此選擇關聯主鍵'"
                                     :data="{ content: baTable.form.extend!.joinTableFieldSelectOpt[item - 1] }"
                                     v-loading="baTable.form.extend!.fieldLoading"
                                 />
                                 <FormItem
-                                    label="关联类型"
+                                    label="關聯類型"
                                     type="select"
                                     v-model="baTable.form.items!.joinTableType[item - 1]"
-                                    placeholder="请选择关联类型"
+                                    placeholder="請選擇關聯類型"
                                     :data="{
                                         content: {
-                                            INNER: 'INNER - 至少一个匹配',
-                                            LEFT: 'LEFT - 从左表返回所有行',
-                                            RIGHT: 'RIGHT - 从右表返回所有行',
+                                            INNER: 'INNER - 至少一個匹配',
+                                            LEFT: 'LEFT - 從左表返回所有行',
+                                            RIGHT: 'RIGHT - 從右表返回所有行',
                                             FULL: 'FULL - 返回所有行',
                                         },
                                     }"
                                 />
                                 <FormItem
                                     v-if="baTable.form.extend!.joinTableFieldSelectOpt && baTable.form.extend!.joinTableFieldSelectOpt[item - 1]"
-                                    label="导出字段"
+                                    label="導出字段"
                                     type="selects"
                                     v-model="baTable.form.items!.joinTableFields[item - 1]"
                                     :key="baTable.form.extend!.joinTableFieldSelectKey[item - 1]"
-                                    :placeholder="'请先选择关联表' + item + '，随后在此选择该表的导出字段'"
+                                    :placeholder="'請先選擇關聯表' + item + '，隨後在此選擇該表的導出字段'"
                                     :data="{ content: baTable.form.extend!.joinTableFieldSelectOpt[item - 1] }"
                                     v-loading="baTable.form.extend!.fieldLoading"
                                 />
@@ -168,31 +168,31 @@
                                         <el-col :span="4">
                                             <el-input
                                                 type="text"
-                                                placeholder="字段标题"
+                                                placeholder="字段標題"
                                                 v-model="baTable.form.extend!.joinTableFieldSelect[item - 1][field].title"
                                                 class="field-title-input"
                                             />
                                         </el-col>
-                                        <el-col :span="3" class="field-title-input-title">数据识别:</el-col>
+                                        <el-col :span="3" class="field-title-input-title">數據識別:</el-col>
                                         <el-col :span="4">
                                             <el-select v-model="baTable.form.extend!.joinTableFieldSelect[item - 1][field].discern">
                                                 <el-option label="文本" value="text" />
-                                                <el-option label="数字" value="int" />
-                                                <el-option label="时间日期" value="time" />
-                                                <el-option label="值替换" value="valuation" />
+                                                <el-option label="數字" value="int" />
+                                                <el-option label="時間日期" value="time" />
+                                                <el-option label="值替換" value="valuation" />
                                                 <el-option label="省份城市" value="city" />
                                             </el-select>
                                         </el-col>
                                         <el-col :span="3" class="field-title-input-title">
                                             <div v-if="baTable.form.extend!.joinTableFieldSelect[item - 1][field].discern == 'valuation'">
-                                                替换方案:
+                                                替換方案:
                                             </div>
                                         </el-col>
                                         <el-col :span="6">
                                             <div v-if="baTable.form.extend!.joinTableFieldSelect[item - 1][field].discern == 'valuation'">
                                                 <el-input
                                                     type="text"
-                                                    placeholder="值替换方案"
+                                                    placeholder="值替換方案"
                                                     v-model="baTable.form.extend!.joinTableFieldSelect[item - 1][field].comment"
                                                     class="field-title-input"
                                                 />
@@ -202,13 +202,13 @@
                                 </template>
                             </div>
                         </el-tab-pane>
-                        <el-tab-pane label="数据筛选配置" name="where">
+                        <el-tab-pane label="數據篩選配置" name="where">
                             <FormItem
                                 v-if="baTable.form.extend!.allTableField"
-                                label="添加筛选字段"
+                                label="添加篩選字段"
                                 type="select"
                                 v-model="baTable.form.items!.where_field"
-                                placeholder="请先选择源表和关联表，随后在此选择数据筛选字段"
+                                placeholder="請先選擇源表和關聯表，隨後在此選擇數據篩選字段"
                                 :data="{ content: baTable.form.extend!.allTableField }"
                                 v-loading="baTable.form.extend!.fieldLoading"
                                 :key="baTable.form.extend!.allTableFieldKey"
@@ -222,12 +222,12 @@
                                 </el-col>
                                 <el-col :span="6">
                                     <el-select v-model="item.operator">
-                                        <el-option label="等于" value="eq" />
-                                        <el-option label="不等于" value="ne" />
-                                        <el-option label="大于" value="gt" />
-                                        <el-option label="大于等于" value="egt" />
-                                        <el-option label="小于" value="lt" />
-                                        <el-option label="小于等于" value="elt" />
+                                        <el-option label="等於" value="eq" />
+                                        <el-option label="不等於" value="ne" />
+                                        <el-option label="大於" value="gt" />
+                                        <el-option label="大於等於" value="egt" />
+                                        <el-option label="小於" value="lt" />
+                                        <el-option label="小於等於" value="elt" />
                                         <el-option label="LIKE" value="LIKE" />
                                         <el-option label="NOT LIKE" value="NOT LIKE" />
                                         <el-option label="IN" value="IN" />
@@ -236,7 +236,7 @@
                                 </el-col>
                                 <el-col :span="10">
                                     <div>
-                                        <el-input type="text" placeholder="筛选值" v-model="item.value" class="field-title-input where-field-input" />
+                                        <el-input type="text" placeholder="篩選值" v-model="item.value" class="field-title-input where-field-input" />
                                     </div>
                                 </el-col>
                                 <el-col :span="3">
@@ -250,7 +250,7 @@
                                 label="排序字段"
                                 type="selects"
                                 v-model="baTable.form.items!.order_field"
-                                :placeholder="'请先选择源表和关联表，随后在此选择数据排序字段'"
+                                :placeholder="'請先選擇源表和關聯表，隨後在此選擇數據排序字段'"
                                 :data="{ content: baTable.form.extend!.allTableField }"
                                 v-loading="baTable.form.extend!.fieldLoading"
                                 :key="baTable.form.extend!.allTableFieldKey + 'order'"
@@ -264,8 +264,8 @@
                                 </el-col>
                                 <el-col :span="6">
                                     <el-select v-model="item.value">
-                                        <el-option label="倒序(从大到小)" value="DESC" />
-                                        <el-option label="正序(从小到大)" value="ASC" />
+                                        <el-option label="倒序(從大到小)" value="DESC" />
+                                        <el-option label="正序(從小到大)" value="ASC" />
                                     </el-select>
                                 </el-col>
                             </el-row>
@@ -303,7 +303,7 @@
                                 :input-attr="{
                                     step: 1,
                                     placeholder:
-                                        t('Please input field', { field: t('routine.dataexport.export_number') }) + '，留空或输入 0 则导出全部',
+                                        t('Please input field', { field: t('routine.dataexport.export_number') }) + '，留空或輸入 0 則導出全部',
                                 }"
                             />
                         </el-tab-pane>
@@ -437,10 +437,10 @@ const onWhereChange = () => {
         field: baTable.form.items!.where_field,
     })
 
-    // 添加后置空
+    // 添加後置空
     baTable.form.items!.where_field = ''
 
-    // 聚焦到最后一个字段的筛选条件输入框
+    // 聚焦到最後一個字段的篩選條件輸入框
     nextTick(() => {
         const inputs = document.querySelectorAll('.where-field-input')
         if (inputs) {
@@ -483,18 +483,18 @@ const rules: Partial<Record<string, FormItemRule[]>> = reactive({
                     fieldCount += baTable.form.items!.joinTableFields[key].length
                 }
                 if (fieldCount <= 0) {
-                    return callback(new Error('请先在基础配置中选择导出字段'))
+                    return callback(new Error('請先在基礎配置中選擇導出字段'))
                 }
                 const memory = (fieldCount * baTable.form.items!.xls_max_number) / 1024
                 if (memory >= baTable.form.items!.memory_limit) {
-                    return callback(new Error('预计需要更多内存 > ' + (memory + 50).toFixed(0) + 'MB'))
+                    return callback(new Error('預計需要更多內存 > ' + (memory + 50).toFixed(0) + 'MB'))
                 }
                 return callback()
             },
             trigger: 'blur',
         },
     ],
-    fields: [buildValidatorData({ name: 'required', message: t('Please select field', { field: '导出字段' }) })],
+    fields: [buildValidatorData({ name: 'required', message: t('Please select field', { field: '導出字段' }) })],
 })
 
 defineExpose({

@@ -1,5 +1,5 @@
 <template>
-    <!-- 对话框表单 -->
+    <!-- 對話框表單 -->
     <el-dialog
         class="ba-operate-dialog"
         :close-on-click-modal="false"
@@ -36,34 +36,34 @@
                         :data="{ content: baTable.form.extend!.tableList }"
                         :placeholder="t('Please select field', { field: t('routine.dataimport.data_table') })"
                     />
-                    <el-form-item label="导入模板">
+                    <el-form-item label="導入模板">
                         <div v-if="baTable.form.items!.data_table" @click="onDownloadImportTemplate" class="template-text-success">
-                            点击下载导入模板文件
+                            點擊下載導入模板文件
                         </div>
-                        <div v-else class="template-text-info">请先选择数据表后可下载导入模板文件</div>
+                        <div v-else class="template-text-info">請先選擇數據表後可下載導入模板文件</div>
                     </el-form-item>
-                    <el-form-item label="导入数据" prop="file">
+                    <el-form-item label="導入數據" prop="file">
                         <el-upload class="upload-xls" :show-file-list="false" accept=".xlsx,.xls" drag :auto-upload="false" @change="uploadXls">
                             <div v-if="baTable.form.extend!.fileUploadStatus == 'wait'" class="upload-file-box">
                                 <Icon size="50px" color="#909399" name="el-icon-UploadFilled" />
-                                <div class="el-upload__text">拖拽 .xls[x] 文件至此处 <em>或点击我上传</em></div>
+                                <div class="el-upload__text">拖拽 .xls[x] 文件至此處 <em>或點擊我上傳</em></div>
                             </div>
                             <div v-if="baTable.form.extend!.fileUploadStatus == 'uploading'" class="upload-file-box">
                                 <Icon size="50px" color="#ffffff" v-loading="true" name="el-icon-UploadFilled" />
-                                <div class="el-upload__text">上传中...</div>
+                                <div class="el-upload__text">上傳中...</div>
                             </div>
                             <div v-if="baTable.form.extend!.fileUploadStatus == 'success'" class="upload-file-box">
                                 <Icon size="50px" color="#ffffff" v-loading="true" name="el-icon-UploadFilled" />
-                                <div class="el-upload__text">文件上传成功，正在处理...</div>
+                                <div class="el-upload__text">文件上傳成功，正在處理...</div>
                             </div>
                         </el-upload>
                     </el-form-item>
                     <el-form-item v-if="baTable.form.items!.data_table">
                         <el-alert title="提示" class="import-tips" type="success">
-                            <p>1、导入数据内无`主键`字段或`主键留空`则可以使用主键自动递增</p>
-                            <p>2、若数据表有设计`create_time`、`update_time`字段且导入数据内未设定这两个字段的值，则自动填充</p>
+                            <p>1、導入數據內無`主鍵`字段或`主鍵留空`則可以使用主鍵自動遞增</p>
+                            <p>2、若數據表有設計`create_time`、`update_time`字段且導入數據內未設定這兩個字段的值，則自動填充</p>
                             <p>
-                                3、所有已设定值的导入数据，将原样导入，比如：`create_time`字段，数据表设计为时间戳则请导入时间戳，`status:0=隐藏,1=开启`，请导入`0`或`1`
+                                3、所有已設定值的導入數據，將原樣導入，比如：`create_time`字段，數據表設計為時間戳則請導入時間戳，`status:0=隱藏,1=開啟`，請導入`0`或`1`
                             </p>
                         </el-alert>
                     </el-form-item>
@@ -96,8 +96,8 @@ const baTable = inject('baTable') as baTableClass
 const { t } = useI18n()
 
 const rules: Partial<Record<string, FormItemRule[]>> = reactive({
-    data_table: [buildValidatorData({ name: 'required', message: '请选择数据表' })],
-    file: [buildValidatorData({ name: 'required', message: '请选择导入数据文件' })],
+    data_table: [buildValidatorData({ name: 'required', message: '請選擇數據表' })],
+    file: [buildValidatorData({ name: 'required', message: '請選擇導入數據文件' })],
 })
 
 const uploadXls = (file: UploadFile) => {

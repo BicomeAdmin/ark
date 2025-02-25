@@ -31,9 +31,11 @@
                     :rules="rules"
                 >
                     <FormItem :label="t('project.string')" type="string" v-model="baTable.form.items!.string" prop="string" :placeholder="t('Please input field', { field: t('project.string') })" />
+                    <FormItem :label="t('project.domain_prefix')" type="string" v-model="baTable.form.items!.domain_prefix" prop="domain_prefix" :placeholder="t('Please input field', { field: t('project.domain_prefix') })" />
                     <FormItem :label="t('project.abbreviation')" type="string" v-model="baTable.form.items!.abbreviation" prop="abbreviation" :placeholder="t('Please input field', { field: t('project.abbreviation') })" />
                     <FormItem :label="t('project.status')" type="switch" v-model="baTable.form.items!.status" prop="status" :input-attr="{ content: { '0': t('project.status 0'), '1': t('project.status 1') } }" />
                     <FormItem :label="t('project.remark')" type="textarea" v-model="baTable.form.items!.remark" prop="remark" :input-attr="{ rows: 3 }" @keyup.enter.stop="" @keyup.ctrl.enter="baTable.onSubmit(formRef)" :placeholder="t('Please input field', { field: t('project.remark') })" />
+                    <FormItem :label="t('project.expired_time')" type="datetime" v-model="baTable.form.items!.expired_time" prop="expired_time" :placeholder="t('Please select field', { field: t('project.expired_time') })" />
                 </el-form>
             </div>
         </el-scrollbar>
@@ -64,6 +66,7 @@ const baTable = inject('baTable') as baTableClass
 const { t } = useI18n()
 
 const rules: Partial<Record<string, FormItemRule[]>> = reactive({
+    expired_time: [buildValidatorData({ name: 'date', title: t('project.expired_time') })],
     create_time: [buildValidatorData({ name: 'date', title: t('project.create_time') })],
     update_time: [buildValidatorData({ name: 'date', title: t('project.update_time') })],
 })
