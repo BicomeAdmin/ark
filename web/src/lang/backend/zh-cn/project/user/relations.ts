@@ -1,0 +1,15 @@
+export default {
+    id: 'ID',
+    project_id: '專案',
+    project__string: '專案名稱',
+    project_user_id: '方舟會員',
+    projectuser__user_id: '用戶ID',
+    project_store_user_id: '電商會員',
+    projectstoreuser__string: '用戶名稱',
+    project_community_user_id: '社群會員',
+    projectcommunityuser__string: '名字',
+    create_time: '創建時間',
+    update_time: '修改時間',
+    remark: '備註',
+    'quick Search Fields': 'ID',
+}

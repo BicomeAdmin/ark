@@ -1,0 +1,15 @@
+export default {
+    id: 'id',
+    project_id: 'project_id',
+    project__string: 'string',
+    project_user_id: 'project_user_id',
+    projectuser__user_id: 'user_id',
+    project_store_user_id: 'project_store_user_id',
+    projectstoreuser__string: 'string',
+    project_community_user_id: 'project_community_user_id',
+    projectcommunityuser__string: 'string',
+    create_time: 'create_time',
+    update_time: 'update_time',
+    remark: 'remark',
+    'quick Search Fields': 'id',
+}
