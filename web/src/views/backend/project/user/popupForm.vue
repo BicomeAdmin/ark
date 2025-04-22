@@ -30,8 +30,8 @@
                     :label-width="baTable.form.labelWidth + 'px'"
                     :rules="rules"
                 >
-                    <FormItem :label="t('project.user.project_id')" type="number" v-model="baTable.form.items!.project_id" prop="project_id" :input-attr="{ step: 1 }" :placeholder="t('Please input field', { field: t('project.user.project_id') })" />
-                    <FormItem :label="t('project.user.user_id')" type="number" v-model="baTable.form.items!.user_id" prop="user_id" :input-attr="{ step: 1 }" :placeholder="t('Please input field', { field: t('project.user.user_id') })" />
+                    <FormItem :label="t('project.user.project_id')" type="remoteSelect" v-model="baTable.form.items!.project_id" prop="project_id" :input-attr="{ pk: 'project.id', field: 'string', remoteUrl: '/admin/Project/index' }" :placeholder="t('Please select field', { field: t('project.user.project_id') })" />
+                    <FormItem :label="t('project.user.user_id')" type="remoteSelect" v-model="baTable.form.items!.user_id" prop="user_id" :input-attr="{ pk: 'id', field: 'name', remoteUrl: '' }" :placeholder="t('Please select field', { field: t('project.user.user_id') })" />
                     <FormItem :label="t('project.user.role')" type="string" v-model="baTable.form.items!.role" prop="role" :input-attr="{ content: { owner: t('project.user.role owner'), admin: t('project.user.role admin'), member: t('project.user.role member') } }" :placeholder="t('Please input field', { field: t('project.user.role') })" />
                 </el-form>
             </div>
@@ -63,8 +63,6 @@ const baTable = inject('baTable') as baTableClass
 const { t } = useI18n()
 
 const rules: Partial<Record<string, FormItemRule[]>> = reactive({
-    project_id: [buildValidatorData({ name: 'number', title: t('project.user.project_id') })],
-    user_id: [buildValidatorData({ name: 'number', title: t('project.user.user_id') })],
     create_time: [buildValidatorData({ name: 'date', title: t('project.user.create_time') })],
     update_time: [buildValidatorData({ name: 'date', title: t('project.user.update_time') })],
 })

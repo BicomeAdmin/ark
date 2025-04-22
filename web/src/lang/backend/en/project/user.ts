@@ -1,6 +1,7 @@
 export default {
     id: 'id',
     project_id: 'project_id',
+    project__string: 'string',
     user_id: 'user_id',
     role: 'role',
     'role owner': 'role owner',

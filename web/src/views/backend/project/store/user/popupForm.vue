@@ -18,7 +18,7 @@
             <div
                 class="ba-operate-form"
                 :class="'ba-' + baTable.form.operate + '-form'"
-                :style="config.layout.shrink ? '':'width: calc(100% - ' + baTable.form.labelWidth! / 2 + 'px)'"
+                :style="config.layout.shrink ? '' : 'width: calc(100% - ' + baTable.form.labelWidth! / 2 + 'px)'"
             >
                 <el-form
                     v-if="!baTable.form.loading"
@@ -30,9 +30,31 @@
                     :label-width="baTable.form.labelWidth + 'px'"
                     :rules="rules"
                 >
-                    <FormItem :label="t('project.store.user.project_id')" type="remoteSelect" v-model="baTable.form.items!.project_id" prop="project_id" :input-attr="{ pk: 'project.id', field: 'string', remoteUrl: '/admin/Project/index' }" :placeholder="t('Please select field', { field: t('project.store.user.project_id') })" />
-                    <FormItem :label="t('project.store.user.string')" type="string" v-model="baTable.form.items!.string" prop="string" :placeholder="t('Please input field', { field: t('project.store.user.string') })" />
-                    <FormItem :label="t('project.store.user.remark')" type="textarea" v-model="baTable.form.items!.remark" prop="remark" :input-attr="{ rows: 3 }" @keyup.enter.stop="" @keyup.ctrl.enter="baTable.onSubmit(formRef)" :placeholder="t('Please input field', { field: t('project.store.user.remark') })" />
+                    <FormItem
+                        :label="t('project.store.user.project_id')"
+                        type="remoteSelect"
+                        v-model="baTable.form.items!.project_id"
+                        prop="project_id"
+                        :input-attr="{ pk: 'project.id', field: 'string', remoteUrl: '/admin/Project/index' }"
+                        :placeholder="t('Please select field', { field: t('project.store.user.project_id') })"
+                    />
+                    <FormItem
+                        :label="t('project.store.user.string')"
+                        type="string"
+                        v-model="baTable.form.items!.string"
+                        prop="string"
+                        :placeholder="t('Please input field', { field: t('project.store.user.string') })"
+                    />
+                    <FormItem
+                        :label="t('project.store.user.remark')"
+                        type="textarea"
+                        v-model="baTable.form.items!.remark"
+                        prop="remark"
+                        :input-attr="{ rows: 3 }"
+                        @keyup.enter.stop=""
+                        @keyup.ctrl.enter="baTable.onSubmit(formRef)"
+                        :placeholder="t('Please input field', { field: t('project.store.user.remark') })"
+                    />
                 </el-form>
             </div>
         </el-scrollbar>

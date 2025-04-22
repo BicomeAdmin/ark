@@ -47,8 +47,9 @@ const baTable = new baTableClass(
         column: [
             { type: 'selection', align: 'center', operator: false },
             { label: t('project.user.id'), prop: 'id', align: 'center', width: 70, operator: 'RANGE', sortable: 'custom' },
-            { label: t('project.user.project_id'), prop: 'project_id', align: 'center', operator: 'RANGE', sortable: false },
-            { label: t('project.user.user_id'), prop: 'user_id', align: 'center', operator: 'RANGE', sortable: false },
+            { label: t('project.user.project_id'), prop: 'project_id', align: 'center', operatorPlaceholder: t('Fuzzy query'), operator: 'LIKE' },
+            { label: t('project.user.project__string'), prop: 'project.string', align: 'center', operatorPlaceholder: t('Fuzzy query'), render: 'tags', operator: 'LIKE' },
+            { label: t('project.user.user_id'), prop: 'user_id', align: 'center', operatorPlaceholder: t('Fuzzy query'), operator: 'LIKE' },
             { label: t('project.user.role'), prop: 'role', align: 'center', operatorPlaceholder: t('Fuzzy query'), operator: 'LIKE', sortable: false, replaceValue: { owner: t('project.user.role owner'), admin: t('project.user.role admin'), member: t('project.user.role member') } },
             { label: t('project.user.create_time'), prop: 'create_time', align: 'center', render: 'datetime', operator: 'RANGE', sortable: 'custom', width: 160, timeFormat: 'yyyy-mm-dd hh:MM:ss' },
             { label: t('project.user.update_time'), prop: 'update_time', align: 'center', render: 'datetime', operator: 'RANGE', sortable: 'custom', width: 160, timeFormat: 'yyyy-mm-dd hh:MM:ss' },

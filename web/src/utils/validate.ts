@@ -10,7 +10,7 @@ export function validatorMobile(rule: any, mobile: string | number, callback: Fu
     if (!mobile) {
         return callback()
     }
-    if (!/^(1[3-9])\d{9}$/.test(mobile.toString())) {
+    if (!/^09\d{8}$/.test(mobile.toString())) {
         return callback(new Error(i18n.global.t('validate.Please enter the correct mobile number')))
     }
     return callback()

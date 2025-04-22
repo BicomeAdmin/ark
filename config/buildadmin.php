@@ -13,7 +13,7 @@ return [
     // 会员登录失败可重试次数,false则无限
     'user_login_retry'      => 10,
     // 管理员登录失败可重试次数,false则无限
-    'admin_login_retry'     => 10,
+    'admin_login_retry'     => false,
     // 开启管理员单处登录它处失效
     'admin_sso'             => false,
     // 开启会员单处登录它处失效
