@@ -80,4 +80,32 @@ class Index extends Frontend
             'menus'            => $menus,
         ]);
     }
+
+    // 在 app/api/controller/Index.php 或者創建新的專案入口控制器
+
+    public function projectInit()
+    {
+        // 從子域名獲取專案標識
+        $host = request()->host();
+        $domainParts = explode('.', $host);
+        $projectPrefix = $domainParts[0];
+
+        // 查詢專案信息
+        $project = \app\admin\model\Project::where('domain_prefix', $projectPrefix)
+            ->where('status', 1)
+            ->where(function($query) {
+                $query->whereNull('expired_time')
+                    ->whereOr('expired_time', '>', time());
+            })
+            ->find();
+
+        if (!$project) {
+            $this->error('專案不存在或已過期');
+        }
+
+        // 設置當前專案ID到會話
+        session('current_project_id', $project->id);
+
+        return $project;
+    }
 }

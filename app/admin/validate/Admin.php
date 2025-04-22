@@ -13,7 +13,7 @@ class Admin extends Validate
         'nickname'  => 'require',
         'password'  => 'require|regex:^(?!.*[&<>"\'\n\r]).{6,32}$',
         'email'     => 'email|unique:admin',
-        'mobile'    => 'mobile|unique:admin',
+        'mobile'    => 'require|regex:^09\d{8}$|unique:admin', // 自訂台灣手機號碼格式
         'group_arr' => 'require|array',
     ];
 
